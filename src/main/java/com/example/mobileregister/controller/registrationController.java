@@ -24,7 +24,7 @@ public class registrationController {
         }
 
         memberService.addMember(member);
-        return ResponseEntity.ok(new AuthenticationResponse(memberService.getTypeClassify(member.getSalary())));
+        return ResponseEntity.ok(new RegistrationResponse(memberService.getTypeClassify(member.getSalary()),memberService.genRefCode(member.getBirthdate(),member.getTel())));
     }
 
     @GetMapping("/getmember/{refercode}")
